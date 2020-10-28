@@ -2,30 +2,76 @@
  * HELPER FUNCTIONS *
  ********************/
 
+const getTodoName = function(todo) {
+  return todo.text
+}
 
+const getPriority = function(todo) {
+  return todo.priority
+}
 
+const isComplete = function(todo) {
+  return todo.complete
+}
 
+const isHighPriority = function(todo) {
+  if (todo.priority >= 2) {
+    return true
+  } else {
+    return false
+  }
+}
 
+const isNotComplete = function(todo) {
+  if (todo.complete === false) {
+    return todo.complete
+  }
+}
 
-
-
-
+const isLowPriority = function(todo) {
+  if (todo.priority <= 1) {
+  return true
+  } else {
+    return false
+  }
+}
 
 /***********************
  * ITERATION FUNCTIONS *
  ***********************/
 
+const names = function(todo) {
+  return todo.map(getTodoName)
+}
 
+const priorities = function(todo) {
+  return todo.map(getPriority)
+}
 
+const namesAndPriorities = function(todo) {
+  if (todo.priority === 1) {
+    return todo.map(getTodoName) + ' - Low'
+  } else if (todo.priority === 2) {
+    return todo.map(getTodoName) + ' - High'
+  }
+}
 
+const justComplete = function(todo) {
+  return todo.filter(isComplete)
+}
+  
 
+const priority2Only = function(todo) {
+    return todo.filter(isHighPriority)
+}
 
+const priority1Only = function(todo) {
+    return todo.filter(isLowPriority)
+}
 
-
-
-
-
-
+const justNotComplete = function(todo) {
+    return todo.filter(isNotComplete)
+}
 
 
 // Our code below
