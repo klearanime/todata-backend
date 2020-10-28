@@ -23,10 +23,10 @@ const isHighPriority = function(todo) {
 }
 
 const isNotComplete = function(todo) {
-  if (todo.complete === false) {
-    return todo.complete
+  if (!todo.complete) {
+    return todo
   }
-}
+}q
 
 const isLowPriority = function(todo) {
   if (todo.priority <= 1) {
@@ -50,9 +50,9 @@ const priorities = function(todo) {
 
 const namesAndPriorities = function(todo) {
   if (todo.priority === 1) {
-    return todo.map(getTodoName) + ' - Low'
+    return todo.filter(getTodoName) + ' - Low'
   } else if (todo.priority === 2) {
-    return todo.map(getTodoName) + ' - High'
+    return todo.filter(getTodoName) + ' - High'
   }
 }
 
